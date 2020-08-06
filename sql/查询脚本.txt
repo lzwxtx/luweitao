@@ -1,0 +1,22 @@
+#2、手机号数据脱敏。
+select name,concat (left(phone,3),'****',right(phone,4)) as phone from employees ;
+
+#3、SQL 统计各部门的员工人数。
+select departments.department_name,count(department_id) as count from employees 
+left join 
+departments 
+on departments.id = employees.department_id
+group by department_id;
+
+#4、SQL 查询每个部门年龄最大的员工。
+select departments.department_name,name,max(age) as max_age from employees 
+left join 
+departments 
+on departments.id = employees.department_id
+group by department_id;
+
+#5、SQL 手机号模糊查询。
+select * from employees where phone like '156%';
+
+
+
